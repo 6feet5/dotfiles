@@ -40,8 +40,8 @@
 *color7: t_comment
 *color15: t_foreground
 
-XTerm*faceName:Inconsolata
-XTerm*faceSize: 10
+XTerm*faceName: Termsyn
+XTerm*faceSize: 12
 XTerm*termName: Xterm-color
 XTerm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:38
 XTerm*trimSelection: true
@@ -55,5 +55,5 @@ xpdf*Foreground:     Black
 xpdf*Background:     White
 xpdf*enableFreetype: yes
 xpdf*antialias:      yes
-xpdf*fontList:       xft:Terminus
+xpdf*fontList:       xft:Termsyn
 

@@ -63,7 +63,7 @@ let g:hybrid_use_Xresources = 1
 colorscheme hybrid               " Current colorscheme from https://github.com/w0ng/vim-hybrid
 set background=dark
 set t_Co=256
-set guifont=Inconsolata
+set guifont=Termsyn\ 12
 
 if has('statusline')
     set laststatus=1
