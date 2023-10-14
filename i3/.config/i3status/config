@@ -17,10 +17,8 @@ order += "disk /"
 order += "read_file PKG"
 order += "path_exists PKG"
 order += "read_file BT"
-order += "path_exists TOUCH"
 order += "wireless _first_"
 order += "ethernet _first_"
-order += "battery all"
 order += "load"
 order += "tztime local"
 
@@ -40,19 +38,6 @@ ethernet _first_ {
         format_down = "   [down] "
         color_good = "#E5E9F0"
         color_bad = "#4C566A"
-}
-
-battery all {
-        format = " %status %percentage "
-        format_down = "  "
-        status_chr = "  "
-        status_bat = "  "
-        status_unk = "  "
-        #last_full_capacity = true
-        status_full = "  "
-        threshold_type = percentage
-        low_threshold = 10
-        integer_battery_capacity = true
 }
 
 load {
@@ -83,13 +68,6 @@ path_exists PKG {
         color_bad = "#A3BE8C"
         #separator = false
         #separator_block_width = 0
-}
-
-path_exists TOUCH {
-        format = "  "
-        path = "/tmp/touch_disabled"
-        color_good = "#EBCB8B"
-        color_bad = "#A3BE8C"
 }
 
 tztime local {
