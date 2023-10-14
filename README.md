@@ -31,8 +31,8 @@ A short list of some of my 'must have' on my computer:
 
 And this is what it might look like:
 
-<img src="./images/clean.png" width="500">
-<img src="./images/busy.png" width="500">
+<img src="./.images/clean.png" width="500">
+<img src="./.images/busy.png" width="500">
 
 [stow]: https://www.gnu.org/software/stow/
 [bare git]: https://www.atlassian.com/git/tutorials/dotfiles
