@@ -1,0 +1,19 @@
+#!/bin/bash
+
+FOLDERS=(
+    ".config"
+    "Documents"
+    ".keychain"
+    ".local"
+    ".aliases"
+    ".bashrc"
+    ".vimrc"
+    ".xbindkeysrc"
+    ".xinitrc"
+    ".xprofile"
+    ".Xresources"
+)
+
+for FILE in ${FOLDERS[@]}; do
+    rsync -av /home/johan/$FILE johan@b3:/home/johan/backup/bagheera
+done

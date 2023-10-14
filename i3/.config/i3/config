@@ -1,0 +1,225 @@
+# file:     $HOME/.i3/config
+# author:   johan.stenarson - http://stenarson.com
+
+# use windows key as modifier
+set $mod Mod4
+
+# use $mod + left mouse button to move floating windows
+floating_modifier $mod
+
+set $term alacritty
+
+set $fn pango: JetbrainsMono Nerd Font 10
+font $fn
+
+set $ws1 "1:Web"
+set $ws2 "2:PyCharm"
+set $ws3 "3:03"
+set $ws4 "4:04"
+set $ws5 "5:05"
+set $ws6 "6:06"
+set $ws7 "7:07"
+set $ws8 "8:08"
+set $ws9 "9:09"
+set $wsX "10:Mail"
+
+# switch workspace
+# keycode 49 = §
+bindcode $mod+49 scratchpad show
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $wsX
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+plus exec ~/.local/bin/i3-next-free-workspace
+workspace_auto_back_and_forth yes
+
+# move focused container to workspace
+# keycode 49 = §
+bindcode $mod+Shift+49 move scratchpad
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $wsX
+
+bindsym $mod+F1 workspace --no-auto-back-and-forth $ws1; exec qutebrowser
+bindsym $mod+F2 workspace --no-auto-back-and-forth $ws2; exec pycharm
+bindsym $mod+F10 workspace --no-auto-back-and-forth $wsX; exec thunderbird
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id mpc volume +5
+bindsym XF86AudioLowerVolume exec --no-startup-id mpc volume -5
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioNext exec --no-startup-id mpc next
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+
+# change window focus
+bindsym $mod+Left    focus left
+bindsym $mod+Down    focus down
+bindsym $mod+Up      focus up
+bindsym $mod+Right   focus right
+
+# move focused window
+bindsym $mod+Shift+Left    move left
+bindsym $mod+Shift+Down    move down
+bindsym $mod+Shift+Up      move up
+bindsym $mod+Shift+Right   move right
+
+# resizing focused window, stealing from adjacent containers
+bindsym $mod+Control+Left  resize shrink  width 10 px or 10 ppt
+bindsym $mod+Control+Right resize grow    width 10 px or 10 ppt
+bindsym $mod+Control+Down  resize shrink  height 10 px or 10 ppt
+bindsym $mod+Control+Up    resize grow    height 10 px or 10 ppt
+
+# change split mode
+bindsym $mod+h split horizontal
+bindsym $mod+v split vertical
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# container layout
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+d layout default
+
+# toggle tiling / floating (focused window)
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# scratchpad shell
+bindsym $mod+Shift+F1 exec --no-startup-id $term -t scratchterm
+exec --no-startup-id ~/.local/bin/scratchpad.sh
+
+# display management
+set $mode_display Ext Screen (v) VGA ON, (h) HDMI ON, (x) VGA OFF, (y) HDMI OFF
+mode "$mode_display" {
+    bindsym v exec --no-startup-id xrandr --output VGA1 --auto --right-of LVDS1, mode "default"
+    bindsym h exec --no-startup-id xrandr --output HDMI1 --auto --right-of LVDS1, mode "default"
+    bindsym x exec --no-startup-id xrandr --output VGA1 --auto --off, mode "default"
+    bindsym y exec --no-startup-id xrandr --output HDMI1 --auto --off, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+# enter display management mode
+bindsym $mod+x mode "$mode_display"
+
+# kill focused window
+bindsym $mod+Escape         kill
+# kill i3 (logs you out of your X session)
+bindsym $mod+Shift+Escape   exit
+# reload the configuration file
+bindsym $mod+q              reload
+# restart i3 inplace (preserves layout/session)
+bindsym $mod+Shift+q        restart
+
+# load colors from .Xresources               (default)
+#                 env      color             gruvbox
+set_from_resource $bg      #1d2021           #1d2021
+set_from_resource $color0  i3wm.color0       #282828
+set_from_resource $color1  i3wm.color1       #fb4934
+set_from_resource $color2  i3wm.color2       #98971a
+set_from_resource $color3  i3wm.color3       #d79921
+set_from_resource $color4  i3wm.color4       #458588
+set_from_resource $color5  i3wm.color5       #b16286
+set_from_resource $color6  i3wm.color6       #689d6a
+set_from_resource $color7  i3wm.color7       #a89984
+set_from_resource $color8  i3wm.color8       #282828
+set_from_resource $color9  i3wm.color9       #fb4934
+set_from_resource $color10 i3wm.color10      #98971a
+set_from_resource $color11 i3wm.color11      #d79921
+set_from_resource $color12 i3wm.color12      #458588
+set_from_resource $color13 i3wm.color13      #b16286
+set_from_resource $color14 i3wm.color14      #689d6a
+set_from_resource $color15 i3wm.color15      #a89984
+set_from_resource $fg      i3wm.foreground   #ebdbb2
+
+# class                    border   backgr.  text     indicator   child_border 
+client.focused             $color4  $color0  $fg      $color14    $color4
+client.focused_inactive    $bg      $bg      $color8  $color8     $color8
+client.unfocused           $bg      $bg      $color8  $color8     $color8
+client.urgent              $color9  $color9  $color15 $color9     $color9
+client.background                   $color11
+
+
+bar {
+    status_command /usr/bin/i3status
+    tray_output primary
+    position top
+    font $fn
+    colors {
+        background           $bg
+        statusline           $fg
+        separator            $bg
+
+        #                    border     backgr.     text
+        focused_workspace    $color4    $color0     $fg
+        active_workspace     $bg        $bg         $color8
+        inactive_workspace   $bg        $bg         $color8
+        urgent_workspace     $color9    $color1     #FFFFFF
+    }
+}
+
+
+for_window [class="MPlayer"] floating enable
+for_window [class="mpv"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [all] default_border pixel 1
+for_window [title="scratchterm"] resize set 1280 800
+for_window [title="scratchterm"] move position center
+for_window [title="scratchterm"] move scratchpad
+
+assign [class="thunderbird"] $wsX
+assign [class="Mail"] $wsX
+assign [class="jetbrains-pycharm-ce"] $ws2
+
+default_border pixel 1
+default_floating_border pixel 5
+
+force_display_urgency_hint 500 ms
+
+# start a terminal
+bindsym $mod+Return exec $term
+
+# dmenu doesn't like pango
+set $bfont Iosevka Nerd Font:size=11
+# start dmenu (everything in PATH)
+bindsym $mod+Shift+r exec dmenu_run -fn "$bfont" -p "RUN " -sb "$color11" -sf "#000000" -nb "$color0" -nf "$color15"
+# start dmenu (desktop version)
+bindsym $mod+r exec i3-dmenu-desktop --dmenu 'dmenu -i -fn "$bfont" -p "RUN " -sb "$color11" -sf "#000000" -nb "$color0" -nf "$color15"'
+
+# Lock screen
+bindsym $mod+l exec --no-startup-id ~/.local/bin/i3lock.sh
+# Screenshot (both screens)
+bindsym $mod+Print exec --no-startup-id screenshot -F "$HOME/Pictures/Screenshot_%Y%m%d.png"
+# Screenshot (selected window or box)
+bindsym $mod+Shift+Print exec --no-startup-id screenshot "$HOME/Pictures/Screenshot_%Y%m%d.png" -bs
+# Password manager
+bindsym $mod+p exec --no-startup-id ~/.local/bin/dpass.sh
+
+# List packages out-of-date
+bindsym $mod+a exec --no-startup-id notify-send -u normal "Upgradable packages" "$(pacman -Qqu || echo None)"
+
+# file manager
+bindsym $mod+e exec --no-startup-id $term -e mc
+
+# quick access to config files
+bindsym $mod+Control+e exec --no-startup-id $term -e vim ~/.config/i3/config
+bindsym $mod+Control+x exec --no-startup-id $term -e vim ~/.Xresources
+

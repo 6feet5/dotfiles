@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/johan/.vim/plugged/nord-vim/colors'
+let g:netrw_dirhist_5='/home/johan/.vim/plugged/nord-vim'
+let g:netrw_dirhist_4='/home/johan/Projects/CM4'
+let g:netrw_dirhist_3='/home/johan/Downloads/docker-environments'
+let g:netrw_dirhist_2='/home/johan/Projects/tracer/src'
+let g:netrw_dirhist_1='/home/johan'
+let g:netrw_dirhist_0='/home/johan/Documents/Source/DrawMap'
+let g:netrw_dirhist_9='/home/johan/Documents/Source'
+let g:netrw_dirhist_8='/home/johan/Documents'
+let g:netrw_dirhist_7='/home/johan'
