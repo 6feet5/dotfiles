@@ -199,6 +199,8 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
+vim.wo.relativenumber = true
+vim.wo.cursorline = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -232,6 +234,20 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
+
+-- Putting swedish characters to some use
+vim.keymap.set({ 'n', 'v' }, 'å', '/', {})
+vim.keymap.set({ 'n', 'v' }, 'ö', ':', {})
+
+-- Make Y behave like D and C
+vim.keymap.set('n', 'Y', 'yg$', {})
+
+-- Buffer stuff
+vim.keymap.set('n', '<C-h>', '<C-w>h', {})
+vim.keymap.set('n', '<C-j>', '<C-w>j', {})
+vim.keymap.set('n', '<C-k>', '<C-w>k', {})
+vim.keymap.set('n', '<C-l>', '<C-w>l', {})
+vim.keymap.set('n', '<C-e>', '<C-w><C-v><C-l>:e $MYVIMRC<CR>', {})
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
