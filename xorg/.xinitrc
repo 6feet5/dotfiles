@@ -21,8 +21,8 @@ setxkbmap -option terminate:ctrl_alt_bksp
 xset +fp /usr/share/fonts/local
 xset fp rehash
 xsetroot -cursor_name left_ptr
-xset dpms 0 0 0
+xset dpms 600 0 0
 xset s blank
-xset s 0
+xset s 600
 
 exec i3

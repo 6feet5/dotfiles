@@ -205,8 +205,8 @@ bindsym $mod+Shift+r exec dmenu_run -fn "$bfont" -p "RUN " -sb "$color11" -sf "#
 # start dmenu (desktop version)
 bindsym $mod+r exec i3-dmenu-desktop --dmenu 'dmenu -i -fn "$bfont" -p "RUN " -sb "$color11" -sf "#000000" -nb "$color0" -nf "$color15"'
 
-# Lock screen
-bindsym $mod+l exec --no-startup-id ~/.local/bin/i3lock.sh
+# Blank screen
+bindsym $mod+l exec --no-startup-id xset dpms force standby
 # Screenshot (both screens)
 bindsym $mod+Print exec --no-startup-id screenshot -F "$HOME/Pictures/Screenshot_%Y%m%d.png"
 # Screenshot (selected window or box)

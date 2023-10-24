@@ -11,6 +11,7 @@ alias cpaste='xclip -o -selection clipboard'
 alias pcopy='xclip -i -selection primary'
 alias ppaste='xclip -o -selection primary'
 alias stow='stow --target=/home/johan'
+alias vim='nvim'
 
 function md() {
     mkdir $1
