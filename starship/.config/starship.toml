@@ -24,7 +24,8 @@ disabled = true
 disabled = true
 
 [python]
-disabled = true
+symbol = "\ue73c "
+style = "purple bold"
 
 [time]
 disabled = false
