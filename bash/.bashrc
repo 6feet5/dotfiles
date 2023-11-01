@@ -9,7 +9,7 @@
 [[ -f ~/.dir_colors ]] && eval $(dircolors ~/.dir_colors)
 
 export BROWSER=qutebrowser
-export EDITOR=vim
+export EDITOR=nvim
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 export HISTSIZE=1000
 export HISTFILESIZE=1000

@@ -58,8 +58,8 @@ bindsym $mod+F1 workspace --no-auto-back-and-forth $ws1; exec qutebrowser
 bindsym $mod+F2 workspace --no-auto-back-and-forth $ws2; exec pycharm
 bindsym $mod+F10 workspace --no-auto-back-and-forth $wsX; exec thunderbird
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id mpc volume +5
-bindsym XF86AudioLowerVolume exec --no-startup-id mpc volume -5
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.platform-bcm2835_audio.analog-stereo +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.platform-bcm2835_audio.analog-stereo -5%
 bindsym XF86AudioMute exec --no-startup-id mpc toggle
 bindsym XF86AudioPlay exec --no-startup-id mpc toggle
 bindsym XF86AudioNext exec --no-startup-id mpc next
