@@ -1,18 +1,5 @@
 #!/bin/bash
 
-if ! [ -x "$(command -v jq)" ]; then
-    printf "\x1B[31m[ERROR] jq is not installed.\x1B[0m\n"
-    exit 1
-fi
-OPTIND=1
-VERBOSE=0
-
-while getopts "v" opt; do
-    case ${opt} in
-        v ) VERBOSE=1 ;;
-    esac
-done
-
 debug() {
     if [ $VERBOSE == 1 ]; then
         printf "\x1B[33m[DEBUG] ${1}\x1B[0m\n"
@@ -24,8 +11,27 @@ error() {
     exit 1
 }
 
+if ! [ -x "$(command -v jq)" ]; then
+    printf "\x1B[31m[ERROR] jq is not installed.\x1B[0m\n"
+    exit 1
+fi
+VERBOSE=0
+DRYRUN=0
 
-USER=sssjtp
+while getopts "nv" opt; do
+    case "${opt}" in
+        n ) DRYRUN=1 ;;
+        v ) VERBOSE=1 ;;
+    esac
+done
+shift $((OPTIND-1))
+
+if [ -z "$TOKEN" ]; then
+    USER=$(pass git/collaborationlayer-traton.com | sed -n 's/username=\(.*\)/\1/p')
+    TOKEN=$(pass git/collaborationlayer-traton.com | sed -n 's/password=\(.*\)/\1/p')
+    debug "TOKEN: ${TOKEN}"
+    debug "USER: ${USER}"
+fi
 
 WORKSPACE=${1:-`pwd`}
 WORKSPACE=$(realpath $WORKSPACE)
@@ -49,15 +55,9 @@ if [ "$IMAGE_FILE" == "null" ]; then
 fi
 
 # Not as user, but using same uid and gid
-#REMOTE_USER="-u $(id -u):$(id -g)"
 REMOTE_USER="-u dev"
-#REMOTE_USER=$(echo $CONFIG | jq -r .remoteUser)
-#debug "REMOTE_USER: ${REMOTE_USER}"
-#if ! [ "$REMOTE_USER" == "null" ]; then
-#    REMOTE_USER="-u ${REMOTE_USER}"
-#fi
 
-ARGS=$(echo $CONFIG | jq -r '.runArgs | to_entries? | map("\(.key)=\"\(.value)\"")? | join(" ")')
+ARGS=$(echo $CONFIG | jq -r '.runArgs | to_entries? | map("\(.value)")? | join(" ")')
 debug "ARGS: ${ARGS}"
 
 PORTS=$(echo $CONFIG | jq -r '.forwardPorts | map("-p \(.):\(.)")? | join(" ")')
@@ -72,5 +72,7 @@ debug "WORK_DIR: ${WORK_DIR}"
 MOUNT="${MOUNT} --mount type=bind,source=${WORKSPACE},target=${WORK_DIR}"
 debug "MOUNT: ${MOUNT}"
 
-eval "docker run -it $REMOTE_USER $PORTS $ENVS $MOUNT -w $WORK_DIR $IMAGE_FILE"
-
+debug "CMD: docker run --rm -it $REMOTE_USER $ARGS $PORTS $ENVS $MOUNT -w $WORK_DIR $IMAGE_FILE"
+if [ $DRYRUN == 0 ]; then
+    eval "docker run --rm -it $REMOTE_USER $PORTS $ENVS $MOUNT -w $WORK_DIR $IMAGE_FILE"
+fi
