@@ -66,10 +66,15 @@ let mapleader="ä"
 
 nnoremap ö :
 nnoremap å /
-nnoremap Y y$
 nnoremap j gj
 nnoremap k gk
 nnoremap <leader><space> :noh<CR>
+nnoremap <leader>gf :GFiles<CR>
+nnoremap <leader>sf :Files<CR>
+nnoremap <leader>sg :Rg<CR>
+nnoremap <leader>sl :Lines<CR>
+nnoremap <leader>sz :FZF<CR>
+
 nnoremap <leader>c  :make %:r:S.o<CR>
 nnoremap <leader>h  :bprevious<CR>
 nnoremap <leader>j  :cnext<CR>
@@ -77,7 +82,6 @@ nnoremap <leader>k  :cprev<CR>
 nnoremap <leader>l  :bnext<CR>
 nnoremap <leader>m  :make<CR>
 nnoremap <leader>n  :exec &nu==&rnu? "se nu!" : "se rnu!"<CR>
-nnoremap <leader>o  :FZF<CR>
 nnoremap <leader>q  :cclose<CR>
 nnoremap <leader>v  <C-w>v<C-w>l
 nnoremap <leader>x  <C-w>s<C-w>j
