@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# A script to simplify attaching to a running container. It presents a list of running containers (using rofi) that
+# user may select from and the selected one will be the one it then attaches to. Canceled by pressing ESC
+#
+# NOTE: Using PROMPT_COMMAND to override PS1 after .bashrc has been executed
+#
+
+if [ -z "$TOKEN" ]; then
+    USER=$(pass git/collaborationlayer-traton.com | sed -n 's/username=\(.*\)/\1/p')
+    TOKEN=$(pass git/collaborationlayer-traton.com | sed -n 's/password=\(.*\)/\1/p')
+fi
+
+PROMPT="\[\e[35m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/') \[\e[34m\]\w\[\e[00m\]\n$ "
+if test -z "$1"; then
+    echo "Select a running container to attach to"
+    CONTAINER=$(docker ps --format "{{.Names}}^{{.Image}}"|column -s\^ -t|rofi -dmenu -window-title "Select running container to attach to:" |awk '{print $1}')
+else
+    CONTAINER="$1"
+fi
+
+test -z "$CONTAINER" && exit
+
+docker exec --user=dev -eTERM=$TERM -eUSER=$USER -eTOKEN=$TOKEN -ePROMPT="$PROMPT" -ePROMPT_COMMAND='export PS1="$PROMPT" && cd /workspaces/* && unset PROMPT_COMMAND' -it "$CONTAINER" /bin/bash
+

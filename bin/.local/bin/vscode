@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# 
+# Start VSCode after presenting user with a list of available repositories containing a devcontainer file.
+# The search path will be either current directory (default) or the one given as argument
+#
+# Requirememts:
+#  * pass - for secure management of user credentials
+#  * rofi - for presenting list to choose from
+#  * fd - for quick search path after devcontainer
+#
+
+if [ -z "$TOKEN" ]; then
+    USER=$(pass git/collaborationlayer-traton.com | sed -n 's/username=\(.*\)/\1/p')
+    TOKEN=$(pass git/collaborationlayer-traton.com | sed -n 's/password=\(.*\)/\1/p')
+fi
+
+WORKSPACE=${1:-`pwd`}
+WORKSPACE=$(realpath $WORKSPACE)
+# 
+# Locate all devcontainers in selected folder or current work dir
+#
+CONFIG_FILE=$(fd --hidden devcontainer.json -E .vscode -E .vscode-oss $WORKSPACE | rofi -dmenu )
+WORKSPACE=${CONFIG_FILE%%/.devcontainer*}
+
+test -z "$CONFIG_FILE" && exit 1
+
+/usr/bin/code $WORKSPACE
+
