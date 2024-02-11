@@ -11,8 +11,8 @@
 #
 
 if [ -z "$TOKEN" ]; then
-    USER=$(pass git/collaborationlayer-traton.com | sed -n 's/username=\(.*\)/\1/p')
-    TOKEN=$(pass git/collaborationlayer-traton.com | sed -n 's/password=\(.*\)/\1/p')
+    export USER=$(pass git/collaborationlayer-traton.com | sed -n 's/username=\(.*\)/\1/p')
+    export TOKEN=$(pass git/collaborationlayer-traton.com | sed -n 's/password=\(.*\)/\1/p')
 fi
 
 WORKSPACE=${1:-`pwd`}

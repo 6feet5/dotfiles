@@ -2,7 +2,7 @@
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = 'ä'
-vim.g.maplocalleader = 'ä'
+vim.g.maplocalleader = '-'
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -195,7 +195,7 @@ require('lazy').setup({
 -- NOTE: You can change these options as you wish!
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
