@@ -21,7 +21,7 @@ hide_when_typing = false
 history = 10000
 
 [selection]
-semantic_escape_chars = ",│`|:\"' ()[]{}<>\t*"
+semantic_escape_chars = "=,│`|:\"' ()[]{}<>\t*"
 
 [window.padding]
 x = 2
