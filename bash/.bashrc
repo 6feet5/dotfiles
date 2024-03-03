@@ -13,7 +13,7 @@ export EDITOR=nvim
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 export HISTSIZE=1000
 export HISTFILESIZE=1000
-export HISTCONTROL="ignoredups"
+export HISTCONTROL="ignoreboth"
 # Syntax highlighting in less
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS="-R --ignore-case --hilite-search"
