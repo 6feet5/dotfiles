@@ -113,6 +113,7 @@ c.url.searchengines = {
    'tl':    'https://www.torrentleech.org/torrents/browse/index/categories/9,11,37,43,14,12,13,41,47/query/{}',
    'wp':    'https://en.wikipedia.org/?search={}',
    'yt':    'https://www.youtube.com/results?search_query={}',
+   'py':    'https://docs.python.org/3/search.html?q={}',
    }
 
 # key bindings
