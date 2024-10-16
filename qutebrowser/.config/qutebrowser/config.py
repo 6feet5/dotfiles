@@ -73,8 +73,9 @@ c.colors.tabs.selected.odd.bg = xresources['*.color12']
 c.colors.tabs.selected.odd.fg = xresources['*.color15']
 
 c.auto_save.session = True
-c.content.geolocation = False
 c.content.autoplay = False
+c.content.geolocation = False
+c.content.pdfjs = True
 c.downloads.location.directory = '~/Downloads/staging_folder/'
 c.downloads.location.prompt = False
 c.downloads.location.remember = False
