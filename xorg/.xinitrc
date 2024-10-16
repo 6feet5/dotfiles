@@ -25,4 +25,6 @@ xset dpms 600 0 0
 xset s blank
 xset s 600
 
+dispwin ~/.config/DisplayCAL/CB322QK.icc
+
 exec i3
