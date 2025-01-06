@@ -9,7 +9,7 @@
 [[ -f ~/.dir_colors ]] && eval $(dircolors ~/.dir_colors)
 
 export BROWSER=qutebrowser
-export EDITOR=nvim
+export EDITOR=vim
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 export HISTSIZE=1000
 export HISTFILESIZE=1000
@@ -19,7 +19,7 @@ export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS="-R --ignore-case --hilite-search"
 export SYSTEMD_LESS="${LESS}"
 export TERMINFO=~/.terminfo
-export MPD_HOST=192.168.1.121
+export MPD_HOST=raspberrypi.lan
 
 eval $(keychain --eval --quiet --agents gpg,ssh id_rsa)
 

@@ -127,10 +127,16 @@ config.bind('I', 'jseval -q -f ~/.local/share/qutebrowser/scripts/cycle-inputs.j
 config.bind('O', 'set-cmd-text :open {url:pretty}', mode='normal')
 config.bind('<Ctrl-Right>', 'tab-next', mode='normal')
 config.bind('<Ctrl-Left>', 'tab-prev', mode='normal')
-config.bind(',p', 'spawn --userscript qute-pass -U secret -u "username=(.+)" -P "password=(.*)"')
+config.bind(',p', 'spawn --userscript qute-pass --username-target secret --username-pattern "usr:(.+)" --password-pattern "(.*)"')
+config.bind(',P', 'spawn --userscript qute-pass --password-only --password-pattern "(.*)"')
 config.bind(',f', 'open {primary}')
 config.bind(',F', 'open --tab {primary}')
 config.bind(',d', 'hint links spawn --detach youtube-dl {hint-url}')
 config.bind(',v', 'hint links spawn --detach mpv --force-window yes {hint-url}')
+
+config.bind('goh', 'open http://homeassistant.lan:8123')
+config.bind('gop', 'open http://192.168.1.80/admin')
+config.bind('gor', 'open http://openwrt.lan/cgi-bin/luci')
+config.bind('gos', 'open http://TL-SG105E.lan')
 
 config.load_autoconfig()
