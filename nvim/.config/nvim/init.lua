@@ -112,10 +112,12 @@ require('lazy').setup({
 
   {
     -- Theme inspired by Atom
-    'shaunsingh/nord.nvim',
+    'sainnhe/gruvbox-material',
+    lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'nord'
+      vim.g.gruvbox_material_enable_italic = true
+      vim.cmd.colorscheme 'gruvbox-material'
     end,
   },
 
@@ -126,7 +128,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'nord',
+        theme = 'gruvbox-material',
         component_separators = '|',
         section_separators = '',
       },

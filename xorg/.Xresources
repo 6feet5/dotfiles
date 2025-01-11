@@ -1,4 +1,4 @@
-#include "/home/johan/.themes/terminal/nord"
+#include "/home/johan/.themes/terminal/gruvbox-material-dark"
 
 URxvt.depth: 24
 URxvt.font: xft:Source Code Pro for Powerline:size=11:antialias=false

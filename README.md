@@ -27,7 +27,6 @@ A short list of some of my 'must have' on my computer:
 * [qutebrowser][] - a keyboard-focused browser
 * [vim][] - the ubiquitous text editor
 * [iosevka][] - versatile typeface for code, from code
-* [nord][] - an arctic, north-bluish color palette
 
 And this is what it might look like:
 
@@ -41,4 +40,3 @@ And this is what it might look like:
 [iosevka]: https://github.com/be5invis/Iosevka
 [qutebrowser]: https://qutebrowser.org/
 [vim]: https://www.vim.org/
-[nord]: https://www.nordtheme.com/

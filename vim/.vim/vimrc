@@ -2,7 +2,7 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
-Plug 'arcticicestudio/nord-vim'
+Plug 'sainnhe/gruvbox-material'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
@@ -106,7 +106,7 @@ cnoremap <F1>       <ESC>
 cmap     w!!        w !sudo tee % >/dev/null
 
 let g:lightline = {
-            \ 'colorscheme': 'nord',
+            \ 'colorscheme': 'gruvbox_material',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \       [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -116,9 +116,9 @@ let g:lightline = {
             \ },
             \ }
 
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-colorscheme nord
+set background=dark
+let g:gruvbox_material_background = 'medium'
+colorscheme gruvbox-material
 
 if has("autocmd")
     autocmd FileType make,html,xml set noexpandtab

@@ -27,9 +27,9 @@ eval $(keychain --eval --quiet --agents gpg,ssh id_rsa)
 . /usr/share/fzf/completion.bash
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-    --color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1
-    --color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1
-    --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
-    --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b'
+  --color=fg:#bdae93,fg+:#ebdbb2,bg:#282828,bg+:#3c3836
+  --color=hl:#fabd2f,hl+:#fabd2f,info:#fabd2f,marker:#8ec07c
+  --color=prompt:#fabd2f,spinner:#8ec07c,pointer:#8ec07c,header:#83a598
+  --color=border:#262626,label:#aeaeae,query:#d9d9d9'
 
 eval "$(starship init bash)"

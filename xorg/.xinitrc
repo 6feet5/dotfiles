@@ -13,8 +13,6 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 [[ -f ~/.fehbg ]] && ~/.fehbg
 
-~/.local/bin/gen_colors
-
 setxkbmap -option ctrl:nocaps
 setxkbmap -option terminate:ctrl_alt_bksp
 
