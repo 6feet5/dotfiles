@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --image-bg '#1d2021' --bg-center "$HOME/.config/wallpapers/archlinux-logo-light-gruvbox.png"
+feh --no-fehbg --bg-center --image-bg '#1d2021' '/home/johan/.config/wallpapers/archlinux-logo-light-gruvbox-material.png' 

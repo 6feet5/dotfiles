@@ -95,6 +95,7 @@ c.tabs.select_on_remove = "prev"
 c.url.searchengines = {
    'DEFAULT': 'https://duckduckgo.com/?q={}',
 
+   'ddg':   'https://duckduckgo.com/?q={}',
    'pip':   'https://pypi.org/search/?q={}&o=',
    'ap':    'https://www.archlinux.org/packages/?q={}',
    'au':    'https://aur.archlinux.org/packages/?O=0&K={}',
