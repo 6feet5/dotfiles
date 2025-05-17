@@ -5,23 +5,34 @@
 # Do nothing, unless running interactively
 [[ $- != *i* ]] && return
 
-[[ -f ~/.config/aliases ]] && . ~/.config/aliases
+[[ -f ~/.aliases ]] && . ~/.aliases
 [[ -f ~/.dir_colors ]] && eval $(dircolors ~/.dir_colors)
+
+# Sensible bash
+PROMPT_COMMAND='history -a'
+export HISTSIZE=500000
+export HISTFILESIZE=100000
+export HISTCONTROL='erasedups:ignoreboth'
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history"
+shopt -s checkwinsize
+shopt -s histappend
+shopt -s cmdhist
+shopt -s autocd
+shopt -s dirspell
+shopt -s cdspell
+shopt -s cdable_vars
+
+export dotfiles="$HOME/github/dotfiles"
 
 export BROWSER=qutebrowser
 export EDITOR=vim
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
-export HISTSIZE=1000
-export HISTFILESIZE=1000
-export HISTCONTROL="ignoreboth"
 # Syntax highlighting in less
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS="-R --ignore-case --hilite-search"
 export SYSTEMD_LESS="${LESS}"
 export TERMINFO=~/.terminfo
 export MPD_HOST=raspberrypi.lan
-
-eval $(keychain --eval --quiet --agents gpg,ssh id_rsa)
 
 . /usr/share/fzf/key-bindings.bash
 . /usr/share/fzf/completion.bash
