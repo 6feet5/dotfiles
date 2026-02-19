@@ -1,8 +1,7 @@
--- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = 'ä'
-vim.g.maplocalleader = '-'
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -111,14 +110,9 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    'sainnhe/gruvbox-material',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.g.gruvbox_material_enable_italic = true
-      vim.cmd.colorscheme 'gruvbox-material'
-    end,
+    "catppuccin/nvim", 
+    name = "catppuccin", 
+    priority = 1000
   },
 
   {
@@ -128,9 +122,8 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'gruvbox-material',
-        component_separators = '|',
-        section_separators = '',
+        component_separators = "|",
+        section_separators = { left = '', right = ''},
       },
     },
   },
@@ -177,6 +170,27 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  {
+    'christoomey/vim-tmux-navigator',
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+      "TmuxNavigateProcessList",
+    },
+    keys = {
+      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    },
+  },
+
+  'norcalli/nvim-colorizer.lua',
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -192,6 +206,8 @@ require('lazy').setup({
   -- { import = 'custom.plugins' },
 }, {})
 
+vim.cmd.colorscheme "catppuccin"
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
@@ -201,7 +217,7 @@ vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
-vim.wo.relativenumber = false
+vim.wo.relativenumber = true
 vim.wo.cursorline = true
 
 -- Enable mouse mode
@@ -245,10 +261,6 @@ vim.keymap.set({ 'n', 'v' }, 'ö', ':', {})
 vim.keymap.set('n', 'Y', 'yg$', {})
 
 -- Buffer stuff
-vim.keymap.set('n', '<C-h>', '<C-w>h', {})
-vim.keymap.set('n', '<C-j>', '<C-w>j', {})
-vim.keymap.set('n', '<C-k>', '<C-w>k', {})
-vim.keymap.set('n', '<C-l>', '<C-w>l', {})
 vim.keymap.set('n', '<C-e>', '<C-w><C-v><C-l>:e $MYVIMRC<CR>', {})
 
 -- Keymaps for better default experience
@@ -269,6 +281,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+require 'colorizer'.setup()
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -539,3 +553,6 @@ cmp.setup {
   },
 }
 
+-- Some netrw settings
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3

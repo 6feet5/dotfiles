@@ -9,7 +9,7 @@ floating_modifier $mod
 
 set $term alacritty
 
-set $fn pango: JetbrainsMono Nerd Font 10
+set $fn pango: JetbrainsMono Nerd Font 12
 font $fn
 
 set $ws1 "1:Web"
@@ -199,7 +199,7 @@ force_display_urgency_hint 500 ms
 bindsym $mod+Return exec $term
 
 # dmenu doesn't like pango
-set $bfont Iosevka Nerd Font:size=11
+set $bfont Iosevka Nerd Font:size=13
 # start dmenu (everything in PATH)
 bindsym $mod+Shift+r exec dmenu_run -fn "$bfont" -p "RUN " -sb "$color11" -sf "#000000" -nb "$color0" -nf "$color15"
 # start dmenu (desktop version)

@@ -1,19 +1,30 @@
-alias ccopy='xclip -i -selection clipboard'
-alias cpaste='xclip -o -selection clipboard'
+#!/bin/bash
+alias ccopy='wl-copy'
+alias cpaste='wl-paste'
 alias df='df -h'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias ll='ls --group-directories-first -ahFNl --color=auto'
 alias ls='ls --group-directories-first -hFN --color=auto'
-alias pcopy='xclip -i -selection primary'
+alias v=nvim
+alias vim=nvim
+alias pcopy='wl-copy -p'
 alias pg='ps ax|grep'
 alias pgrep='pgrep -af'
-alias ppaste='xclip -o -selection primary'
+alias ppaste='wl-paste -p'
 alias refresh='source ~/.bash_profile'
 alias stow='stow --target=/home/johan'
 
 function md() {
     mkdir $1
     cd $1
+}
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }

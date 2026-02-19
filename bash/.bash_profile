@@ -11,9 +11,6 @@ if [[ -d "$HOME/.local/bin" && -z $(echo $PATH | grep -o "$HOME/.local/bin") ]];
 	export PATH="$HOME/.local/bin:$PATH"
 fi
 
-# NumLock on
-setleds -D +num
-
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-   exec startx
+   exec start-hyprland
 fi

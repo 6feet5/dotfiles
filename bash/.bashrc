@@ -20,12 +20,9 @@ shopt -s cmdhist
 shopt -s autocd
 shopt -s dirspell
 shopt -s cdspell
-shopt -s cdable_vars
-
-export dotfiles="$HOME/github/dotfiles"
 
 export BROWSER=qutebrowser
-export EDITOR=vim
+export EDITOR=nvim
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 # Syntax highlighting in less
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
@@ -37,10 +34,20 @@ export MPD_HOST=raspberrypi.lan
 . /usr/share/fzf/key-bindings.bash
 . /usr/share/fzf/completion.bash
 
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-  --color=fg:#bdae93,fg+:#ebdbb2,bg:#282828,bg+:#3c3836
-  --color=hl:#fabd2f,hl+:#fabd2f,info:#fabd2f,marker:#8ec07c
-  --color=prompt:#fabd2f,spinner:#8ec07c,pointer:#8ec07c,header:#83a598
-  --color=border:#262626,label:#aeaeae,query:#d9d9d9'
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1E1E2E,spinner:#F5E0DC,hl:#F38BA8 \
+--color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
+--color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
+--color=selected-bg:#45475A \
+--color=border:#6C7086,label:#CDD6F4"
+
+export FZF_DEFAULT_COMMAND='fd --hidden --type l --type f --type d --exclude .git --exclude .cache'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --hidden --type d --exclude .git --exclude .cache'
+
+bind '"\C-f":"tmux-sessionizer.sh\n"'
 
 eval "$(starship init bash)"
+
+[[ ! -f /tmp/upgradable_packages ]] && ~/.local/bin/update_package_db
+

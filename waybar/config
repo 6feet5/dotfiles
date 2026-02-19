@@ -1,0 +1,108 @@
+{
+	"layer": "top",
+	"position": "top",
+
+	"modules-left": [ "hyprland/workspaces", "hyprland/submap", "custom/arrow10" ],
+
+	"modules-center": [ "custom/arrow6", "mpd", "custom/arrow10" ],
+
+	"modules-right": [
+		"custom/notification",
+		"custom/arrow5",
+		"network",
+		"custom/arrow4",
+		"custom/pacman",
+		"custom/arrow3",
+		"cpu",
+		"custom/arrow2",
+		"temperature",
+		"custom/arrow1",
+		"clock"
+	],
+
+	// Modules
+
+	"hyprland/workspaces": {
+		"disable-scroll-wraparound": true,
+		"smooth-scrolling-threshold": 4,
+		"enable-bar-scroll": true,
+		"format": "{name}"
+	},
+
+	"mpd": {
+		"format-stopped": "",
+		"tooltip": false,
+	},
+
+	"network": {
+		"interface": "enp88s0",
+		"interval": 5,
+		"format-wifi": " {essid} ({signalStrength}%)",
+		"format-ethernet": "󰈀 {ipaddr}/{cidr}",
+		"format-disconnected": "No connection",
+		"format-alt": "󰈀 {ifname}",
+		"tooltip": false
+	},
+
+	"custom/pacman": {
+		"exec": "cat /tmp/upgradable_packages",
+		"format": "󰮯 {}",
+		"interval": 5,
+		"tooltip": false
+	},
+
+	"cpu": {
+		"interval": 5,
+		"tooltip": false,
+		"format": " {usage}%",
+		"format-alt": " {load}",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
+
+	"clock": {
+		"interval": 10,
+		"format": "{:%e %b %H:%M}",
+		"tooltip": false
+	},
+
+
+	"custom/arrow1": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow2": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow3": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow4": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow5": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow6": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow10": {
+		"format": "",
+		"tooltip": false
+	}
+}
+
+// vi:ft=jsonc

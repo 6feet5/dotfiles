@@ -1,0 +1,24 @@
+[mgr]
+prepend_keymap = [
+	{ on = "<F1>", run = "help", desc = "Show help" },
+
+	{ on = "<F7>", run = "create --dir", desc = "Create directory.." },
+	{ on = "<F8>", run = "remove --permanently", desc = "Delete file(s)" },
+	{ on = "<F10>", run = "quit", desc = "Quit program" },
+
+	{ on = [ "g", "b" ], run = "cd /media/b3/", desc = "Go to Bubba" },
+	{ on = [ "g", "c" ], run = "cd ~/.config", desc = "Go to configuration" },
+	{ on = [ "g", "d" ], run = "cd ~/Downloads", desc = "Go to downloads" },
+	{ on = [ "g", "D" ], run = "cd /media/nas/download/transmission/download/complete", desc = "Go to NAS downloads" },
+	{ on = [ "g", "e" ], run = "cd /etc", desc = "Go to /etc" },
+	{ on = [ "g", "g" ], run = "cd ~/github", desc = "Go to local github" },
+	{ on = [ "g", "h" ], run = "cd ~", desc = "Go home" },
+	{ on = [ "g", "m" ], run = "cd /media/nas/Music", desc = "Go to music" },
+	{ on = [ "g", "p" ], run = "cd ~/projects", desc = "Go to projects" },
+	{ on = [ "g", "w" ], run = "cd ~/work", desc = "Go to work" },
+
+	{ on = "<Home>", run = "arrow top", desc = "Go to first element" },
+	{ on = "<End>", run = "arrow bot", desc = "Go to last element" },
+	{ on = "<Ins>", run = "toggle", desc = "Go to first element" },
+	{ on = "<Del>", run = "remove --permanently", desc = "Delete file(s)" },
+]
