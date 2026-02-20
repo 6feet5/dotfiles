@@ -18,14 +18,15 @@ cd ~/path/to/dotfiles
 stow --target=$HOME --restow */ 
 ```
 
-## Must have
+## Currently using...
 
-A short list of some of my 'must have' on my computer:
+I'm not the kind of person who keep changing my setup and when I do change something it usually is for a good reason. 
+In other words - don't expect frequent changes. When I find something I like, I usually stick with it.
 
 * [archlinux][] - a simple, lightweight linux distribution
-* [i3][] - a tiling window manager
+* [hyprland][] - a tiling window manager
 * [qutebrowser][] - a keyboard-focused browser
-* [vim][] - the ubiquitous text editor
+* [neovim][] - hyperextensible Vim-based text editor
 * [iosevka][] - versatile typeface for code, from code
 
 And this is what it might look like:
@@ -36,7 +37,7 @@ And this is what it might look like:
 [stow]: https://www.gnu.org/software/stow/
 [bare git]: https://www.atlassian.com/git/tutorials/dotfiles
 [archlinux]: https://archlinux.org/
-[i3]: https://i3wm.org/
+[hyprland]: https://hypr.land/
 [iosevka]: https://github.com/be5invis/Iosevka
 [qutebrowser]: https://qutebrowser.org/
-[vim]: https://www.vim.org/
+[neovim]: https://neovim.io/
