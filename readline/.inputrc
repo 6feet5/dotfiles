@@ -5,6 +5,10 @@ set bell-style visible
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
+# Ctrl-k not working due to tmux navigation binding
+"\e[3;5~": kill-line
+"\e[3;2~": kill-word
+
 # Completion tweaks
 set completion-ignore-case on
 set completion-map-case on
