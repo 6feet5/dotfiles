@@ -30,8 +30,9 @@
 	},
 
 	"mpd": {
-		"format-stopped": "",
-		"tooltip": false,
+		"format-stopped": "[stopped]",
+		"format-paused": "{album} - {artist} - {title}",
+		"tooltip-format": "{elapsedTime} / {totalTime}",
 	},
 
 	"network": {
