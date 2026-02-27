@@ -27,4 +27,4 @@ x = 2
 y = 2
 
 [general]
-import = ["/home/johan/.config/alacritty/gruvbox-material-dark.toml"]
+import = ["/home/johan/.config/alacritty/catppuccin-mocha.toml"]
