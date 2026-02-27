@@ -31,7 +31,7 @@
 
 	"mpd": {
 		"format-stopped": "[stopped]",
-		"format-paused": "{album} - {artist} - {title}",
+		"format-paused": "( {album} - {artist} - {title} )",
 		"tooltip-format": "{elapsedTime} / {totalTime}",
 	},
 
