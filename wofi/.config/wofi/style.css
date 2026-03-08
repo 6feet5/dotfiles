@@ -52,8 +52,8 @@
 @define-color	crust-rgb  rgb(17, 17, 27);
 
 * {
-  font-family: 'JetBrains NF', monospace;
-  font-size: 15px;
+  font-family: 'JetBrainsMono Nerd Font', monospace;
+  font-size: 16px;
 }
 
 /* Window */

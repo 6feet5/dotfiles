@@ -20,7 +20,7 @@ WORKSPACE=$(realpath $WORKSPACE)
 # 
 # Locate all devcontainers in selected folder or current work dir
 #
-CONFIG_FILE=$(fd --hidden devcontainer.json -E .vscode -E .vscode-oss $WORKSPACE | rofi -dmenu )
+CONFIG_FILE=$(fd --hidden devcontainer.json -E .vscode -E .vscode-oss $WORKSPACE | wofi -dmenu )
 WORKSPACE=${CONFIG_FILE%%/.devcontainer*}
 
 test -z "$CONFIG_FILE" && exit 1
