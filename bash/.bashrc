@@ -21,6 +21,9 @@ shopt -s autocd
 shopt -s dirspell
 shopt -s cdspell
 
+# Perhaps not so sensible bash
+set -o vi
+
 export BROWSER=qutebrowser
 export EDITOR=nvim
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
