@@ -1,5 +1,4 @@
 #!/bin/bash
 
 # Update package database
-/usr/bin/pacman -Sy >/dev/null
-pacman -Qu | wc -l >/tmp/upgradable_packages
+/usr/bin/checkupdates | wc -l >/tmp/upgradable_packages
