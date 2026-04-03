@@ -21,6 +21,7 @@ prepend_keymap = [
 	{ on = [ "g", "w" ], run = "cd ~/work", desc = "Go to work" },
 
 	{ on = "b", run = "back", desc = "Go back to previous directory" },
+	{ on = "d", run = "remove --permanently", desc = "Delete file(s)" },
 
 	{ on = [ "t", "t" ], run = "plugin smart-tab", desc = "Create a tab and enter hovered directory" },
 	{ on = "<Home>", run = "arrow top", desc = "Go to first element" },

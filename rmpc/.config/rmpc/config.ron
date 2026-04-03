@@ -74,7 +74,7 @@
             "n":         NextResult,
             "g":         Top,
             "<Home>":    Top,
-            "<Space>":   Select,
+            "<Space>":   Add,
             "<C-Space>": InvertSelection,
             "G":         Bottom,
             "<End>":     Bottom,
