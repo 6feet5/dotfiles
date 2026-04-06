@@ -15,6 +15,7 @@ alias pgrep='pgrep -af'
 alias ppaste='wl-paste -p'
 alias refresh='source ~/.bash_profile'
 alias stow='stow --target=/home/johan'
+alias which='type -p'
 
 function md() {
     mkdir $1
