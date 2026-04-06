@@ -54,3 +54,32 @@ eval "$(starship init bash)"
 
 [[ ! -f /tmp/upgradable_packages ]] && ~/.local/bin/update_package_db
 
+# Verify we're not already in tmux, and that shell is interactive
+if [[ -z "$TMUX" && $- == *i* ]]; then
+    # Four default sessions
+    default_sessions=("main" "distracted" "rabbit-hole" "limbo")
+    session_found=false
+
+    for s in "${default_sessions[@]}"; do
+        # Does a default exist
+        if tmux has-session -t "$s" 2>/dev/null; then
+            # Is it already attached
+            if tmux list-sessions -F "#{session_name} #{session_attached}" | grep -q "^$s 0$"; then
+                exec tmux attach-session -t "$s"
+                session_found=true
+                break
+            fi
+        else
+            # Default doesn't exist, create it
+            exec tmux new-session -s "$s"
+            session_found=true
+            break
+        fi
+    done
+
+    # All default sessions taken, create a new anonymous
+    if [ "$session_found" = false ]; then
+        exec tmux new-session \; set-option destroy-unattached on
+    fi
+fi
+
