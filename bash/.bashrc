@@ -54,8 +54,8 @@ eval "$(starship init bash)"
 
 [[ ! -f /tmp/upgradable_packages ]] && ~/.local/bin/update_package_db
 
-# Verify we're not already in tmux, and that shell is interactive
-if [[ -z "$TMUX" && $- == *i* ]]; then
+# Only do this in wayland and verify we're not already in tmux, and that shell is interactive
+if [[ -n "$WAYLAND_DISPLAY" && -z "$TMUX" && $- == *i* ]]; then
     # Four default sessions
     default_sessions=("main" "distracted" "rabbit-hole" "limbo")
     session_found=false
